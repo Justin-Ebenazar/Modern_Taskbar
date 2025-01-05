@@ -1,0 +1,19 @@
+<div class="settings">
+    <div class="themes" style="margin-top: 20px;">
+        <input type="radio" id="light" name="theme" checked style="margin: 0px 5px 0px 0px;" onchange="modifyTaskbar('color','rgb(255, 255, 255)');">
+        <label for="light" style="margin-right: 2vw;">Light</label>
+
+        <input type="radio" id="dark" name="theme" style="margin: 0px 5px 0px 0px;" onchange="modifyTaskbar('color','rgb(0, 0, 0)');">
+        <label for="dark" style="margin-right: 2vw;">Dark</label>
+
+        <input type="radio" id="system" name="theme" style="margin: 0px 5px 0px 0px;">
+        <label for="system">Follow system</label>
+    </div>
+    <div class="background-property">
+        <input type="checkbox" id="transparency" name="transparency" style="margin: 0px 5px 0px 0px;" onchange="toggleTransparency()">
+        <label for="transparency">Transparent</label>
+
+        <input type="checkbox" id="blur" name="blur" style="margin: 0px 5px 0px 45px;" onchange="toggleBlur()">
+        <label for="blur">Blur</label>
+    </div>
+</div>

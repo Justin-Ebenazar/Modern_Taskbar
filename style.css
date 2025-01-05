@@ -6,7 +6,8 @@
 }
 
 .full {
-    background-image: url('wallpaper_test.jpg');
+    background-image: url('wallpaper_t8est.jpg');
+    background-color: grejen;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -23,7 +24,7 @@
     align-items: center;
     padding: 10px;
     background-color: rgba(255,255,255,0.5);
-    width: 20vw;
+    width: 100vw;
     height: 10vh;
     border-radius: 10px;
 }
@@ -55,6 +56,11 @@ button{
     background-color: rgba(0,0,0,0);
 }
 
+button:hover{
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50px;
+}
+
 .system-tray svg{
     transition: transform 0.3s ease;
 }
@@ -65,10 +71,9 @@ button{
 
 .slider-container{
     position: relative;
-    /* background-color: green; */
-    width: 15vw;
+    background-color: green;
+    width: 100vw;
     height:10vh;
-    margin-bottom: 7px;
 }
 
 .volume-slider{
@@ -77,18 +82,18 @@ button{
     align-items: center;
     background-color: rgba(255,255,255,0.5);
     border-radius: 7px;
-    width: 15vw;
-    height:10vh;
+    width: 100vw;
+    height:5vh;
     margin-bottom: 1vh;
     position: absolute;
-    top: 40%;
+    top: 60%;
     opacity: 0;
     visibility: hidden; /* Initially hidden from clicks */
     transition: top 0.3s ease-out, opacity 0.2s ease-out, visibility 0.5s ease-out;
 }
 
 .volume-slider.active{
-    top: 0;
+    top: 30%;
     opacity: 1;
     visibility: visible;
 }
@@ -104,7 +109,6 @@ input[type="range"].win10-thumb {
     --thumb-width: 0.5em;
     --track-height: 0.125em;
     --clip-edges: 0.0125em;
-      width: 12.5em;
   }
   
   input[type="range"].win10-thumb::-webkit-slider-runnable-track {

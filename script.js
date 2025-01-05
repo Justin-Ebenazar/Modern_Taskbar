@@ -49,3 +49,5 @@ function toggleVolumeSlider(){
     const flyInDiv = document.querySelector('.volume-slider');
     flyInDiv.classList.toggle('active');
 }
+
+console.log("its working");

@@ -62,3 +62,85 @@ button{
 .system-tray:focus svg, .system-tray:active svg{
     transform: rotate(180deg);
 }
+
+.slider-container{
+    position: relative;
+    /* background-color: green; */
+    width: 15vw;
+    height:10vh;
+    margin-bottom: 7px;
+}
+
+.volume-slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 7px;
+    width: 15vw;
+    height:10vh;
+    margin-bottom: 1vh;
+    position: absolute;
+    top: 40%;
+    opacity: 0;
+    visibility: hidden; /* Initially hidden from clicks */
+    transition: top 0.3s ease-out, opacity 0.2s ease-out, visibility 0.5s ease-out;
+}
+
+.volume-slider.active{
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Slider volume css */
+
+input[type="range"].win10-thumb {
+    -webkit-appearance: none; /* Crucial for Chromium */
+    appearance: none;
+    color: yellow; /* Color of the filled portion (and thumb border) */
+    --thumb-height: 1em;
+    --thumb-width: 0.5em;
+    --track-height: 0.125em;
+    --clip-edges: 0.0125em;
+      width: 12.5em;
+  }
+  
+  input[type="range"].win10-thumb::-webkit-slider-runnable-track {
+    background: rgba(0, 0, 0, 0.2); /* Track color */
+      height: var(--track-height);
+  }
+  
+  input[type="range"].win10-thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: var(--thumb-width);
+    height: var(--thumb-height);
+    background: currentColor; /* Inherits color: yellow; */
+    border-radius: var(--thumb-width);
+      box-shadow: calc(-100vw + var(--thumb-width)) 0 0 100vw currentColor;
+      transition: all ease 100ms;
+      clip-path: polygon(
+          100% -1px,
+          var(--clip-edges) -1px,
+          0 calc((var(--thumb-height) - var(--track-height)) * 0.5),
+          -100vw calc((var(--thumb-height) - var(--track-height)) * 0.5),
+          -100vw calc(var(--thumb-height) - calc((var(--thumb-height) - var(--track-height)) * 0.5)),
+          0 calc(var(--thumb-height) - calc((var(--thumb-height) - var(--track-height)) * 0.5)),
+          var(--clip-edges) 100%,
+          calc(100vw + 1px) calc(100vw + 1px)
+      );
+  }
+  
+  input[type="range"].win10-thumb:hover::-webkit-slider-thumb {
+      filter: brightness(180%);
+      cursor: grab;
+  }
+  input[type="range"].win10-thumb:active::-webkit-slider-thumb {
+      filter: brightness(80%);
+      cursor: grabbing;
+  }
+
+  
+
+

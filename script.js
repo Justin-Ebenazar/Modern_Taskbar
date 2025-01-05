@@ -31,7 +31,7 @@ function modifyTaskbar(property, value) {
 function toggleTransparency() {
     const transparencyCheckbox = document.getElementById('transparency');
     if (transparencyCheckbox.checked) {
-        modifyTaskbar('transparency', 0.5); // Set transparency to 0.5 when checked
+        modifyTaskbar('transparency', 0.2); // Set transparency to 0.5 when checked
     } else {
         modifyTaskbar('transparency', 1); // Set transparency to 1 (fully opaque) when unchecked
     }
@@ -43,4 +43,9 @@ function toggleBlur() {
     } else {
         modifyTaskbar('blur', blurCheckbox.checked ? 5 : 0); // Remove blur when unchecked
     }
+}
+
+function toggleVolumeSlider(){
+    const flyInDiv = document.querySelector('.volume-slider');
+    flyInDiv.classList.toggle('active');
 }

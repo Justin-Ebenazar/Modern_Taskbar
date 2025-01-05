@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+out/
+release/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.DS_Store
+.vscode/
+
+# Environment files (sensitive information)
+.env
+
+# Debug files
+*.orig
+*.pyc
+__pycache__/
+
+# Package manager files (sometimes useful to include, but often not needed)
+# package-lock.json  # If you're using npm and want to force exact dependency versions, keep this
+# yarn.lock        # If you're using Yarn and want to force exact dependency versions, keep this
+
+# IDE specific files
+.idea/
+*.iml
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Coverage reports
+coverage/
+
+# Documentation
+docs/build/
+
+# Compiled object files
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.la

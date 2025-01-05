@@ -1,44 +1,46 @@
-// script.js
+const taskbar=document.querySelector('.taskbar');
 
-// Get elements
-const clockElement = document.getElementById('clock');
-const wifiIcon = document.getElementById('wifi-icon');
-const volumeIcon = document.getElementById('volume-icon');
-const notificationCount = document.getElementById('notification-count');
+function modifyTaskbar(property, value) {
+    const taskbar = document.querySelector('.taskbar');
+    let currentColor = getComputedStyle(taskbar).backgroundColor;
 
-// Update the time every second
-setInterval(() => {
-    const now = new Date();
-    clockElement.textContent = now.toLocaleTimeString();
-}, 1000);
+    switch (property) {
+        case 'color':
+            taskbar.style.backgroundColor = value;
+            break;
+        case 'transparency':
+            let rgb = [0, 0, 0];
+            if (currentColor.startsWith('rgb')) {
+                const parts = currentColor.substring(currentColor.indexOf('(') + 1, currentColor.lastIndexOf(')')).split(',').map(Number);
+                rgb = parts.slice(0, 3); 
+            } else if (currentColor.startsWith('rgba')) {
+                const parts = currentColor.substring(currentColor.indexOf('(') + 1, currentColor.lastIndexOf(')')).split(',').map(Number);
+                rgb = parts.slice(0, 3);
+            }
 
-// Notification Counter (increase count on click)
-let notifications = 0;
-notificationCount.addEventListener('click', () => {
-    notifications++;
-    notificationCount.textContent = `Notifications: ${notifications}`;
-});
-
-// Toggle Wi-Fi icon state
-wifiIcon.addEventListener('click', () => {
-    const isConnected = wifiIcon.classList.contains('connected');
-    if (isConnected) {
-        wifiIcon.classList.remove('connected');
-        alert('Wi-Fi disconnected!');
-    } else {
-        wifiIcon.classList.add('connected');
-        alert('Wi-Fi connected!');
+            taskbar.style.backgroundColor = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${value})`;
+            break;
+        case 'blur':
+            taskbar.style.backdropFilter = value === 0 ? 'none' : `blur(${value}px)`;
+            break;
+        default:
+            console.warn(`Invalid property: ${property}. Valid options are 'color', 'transparency', or 'blur'`);
     }
-});
+}
 
-// Toggle Volume icon state
-volumeIcon.addEventListener('click', () => {
-    const isMuted = volumeIcon.classList.contains('muted');
-    if (isMuted) {
-        volumeIcon.classList.remove('muted');
-        alert('Volume unmuted!');
+function toggleTransparency() {
+    const transparencyCheckbox = document.getElementById('transparency');
+    if (transparencyCheckbox.checked) {
+        modifyTaskbar('transparency', 0.5); // Set transparency to 0.5 when checked
     } else {
-        volumeIcon.classList.add('muted');
-        alert('Volume muted!');
+        modifyTaskbar('transparency', 1); // Set transparency to 1 (fully opaque) when unchecked
     }
-});
+}
+function toggleBlur() {
+    const blurCheckbox = document.getElementById('blur');
+    if (blurCheckbox.checked) {
+        modifyTaskbar('blur', 5); // Set blur when checked
+    } else {
+        modifyTaskbar('blur', blurCheckbox.checked ? 5 : 0); // Remove blur when unchecked
+    }
+}

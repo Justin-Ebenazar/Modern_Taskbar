@@ -3,23 +3,53 @@
 <head>
     <title>Windows 11 Taskbar Mockup</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <div class="full">
         <div class="taskbar">
-            <button class="system-tray"></button>
-            <button class="wifi"></button>
-            <button class="battery"></button>
-            <button class="volume"></button>
-            <button class="time-date"></button>
-            <button class="action-center"></button>
+            <button class="system-tray">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 15h14l-7-8z" fill="black"/></svg>
+            </button>
+
+            <button class="wifi">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 6c3.537 0 6.837 1.353 9.293 3.809l1.414-1.414C19.874 5.561 16.071 4 12 4c-4.071.001-7.874 1.561-10.707 4.395l1.414 1.414C5.163 7.353 8.463 6 12 6zm5.671 8.307c-3.074-3.074-8.268-3.074-11.342 0l1.414 1.414c2.307-2.307 6.207-2.307 8.514 0l1.414-1.414z"/><path d="M20.437 11.293c-4.572-4.574-12.301-4.574-16.873 0l1.414 1.414c3.807-3.807 10.238-3.807 14.045 0l1.414-1.414z"/><circle cx="12" cy="18" r="2"/></svg>
+            </button>
+
+            <button class="battery">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2h2v-4h-2V8z"/></svg>
+            </button>
+            
+            <button class="volume">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 21c3.527-1.547 5.999-4.909 5.999-9S19.527 4.547 16 3v2c2.387 1.386 3.999 4.047 3.999 7S18.387 17.614 16 19v2z"/><path d="M16 7v10c1.225-1.1 2-3.229 2-5s-.775-3.9-2-5zM4 17h2.697l5.748 3.832a1.004 1.004 0 0 0 1.027.05A1 1 0 0 0 14 20V4a1 1 0 0 0-1.554-.832L6.697 7H4c-1.103 0-2 .897-2 2v6c0 1.103.897 2 2 2zm0-8h3c.033 0 .061-.016.093-.019a1.027 1.027 0 0 0 .38-.116c.026-.015.057-.017.082-.033L12 5.868v12.264l-4.445-2.964c-.025-.017-.056-.02-.082-.033a.986.986 0 0 0-.382-.116C7.059 15.016 7.032 15 7 15H4V9z"/></svg>
+            </button>
+
+            <button class="time-date">
+
+            </button>
+            
+            <button class="action-center">
+                <img src="icons/action_center.png" width="24" height="24">
+            </button>
         </div>
         <div class="settings">
-            <input type="radio" id="light" name="theme" checked>
-            <label for="light">Light</label>
+            <div class="themes" style="margin-top: 20px;">
+                <input type="radio" id="light" name="theme" checked style="margin: 0px 5px 0px 0px;" onchange="modifyTaskbar('color','rgb(255, 255, 255)');">
+                <label for="light" style="margin-right: 2vw;">Light</label>
 
-            <input type="radio" id="dark" name="theme" style="margin-right: 2vw;">
-            <label for="dark">Dark</label>
+                <input type="radio" id="dark" name="theme" style="margin: 0px 5px 0px 0px;" onchange="modifyTaskbar('color','rgb(0, 0, 0)');">
+                <label for="dark" style="margin-right: 2vw;">Dark</label>
+
+                <input type="radio" id="system" name="theme" style="margin: 0px 5px 0px 0px;">
+                <label for="system">Follow system</label>
+            </div>
+            <div class="background-property">
+                <input type="checkbox" id="transparency" name="transparency" style="margin: 0px 5px 0px 0px;" onchange="toggleTransparency()">
+                <label for="transparency">Transparent</label>
+
+                <input type="checkbox" id="blur" name="blur" style="margin: 0px 5px 0px 45px;" onchange="toggleBlur()">
+                <label for="blur">Blur</label>
+            </div>
         </div>
     </div>
 </body>
